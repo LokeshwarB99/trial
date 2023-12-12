@@ -10,6 +10,17 @@ const InputEmployee = () => {
   const [address, setaddress] = useState("");
   const [salary, setsalary] = useState("");
 
+  const test = async () => {
+    try {
+      const response = await fetch(
+        "https://empdb-rs8r-app-api.onrender.com/test"
+      );
+      const data = await response.text();
+      alert(data);
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
 
   const onSubmitForm = async (e) => {
     
@@ -71,6 +82,7 @@ const InputEmployee = () => {
           placeholder="salary"
         />
         <button className="btn btn-success mx-2">Add</button>
+        <button onClick={test} className="mt-2 btn btn-success mx-2">Test</button>
       </form>
     </>
   );
