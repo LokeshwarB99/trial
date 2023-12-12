@@ -15,6 +15,9 @@ const InputEmployee = () => {
       const response = await fetch(
         `${URL}/test`
       );
+      console.log(URL)
+      console.log(`${URL}/test`);
+
       const data = await response.text();
       alert(data);
     } catch (error) {
