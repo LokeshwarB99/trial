@@ -13,7 +13,7 @@ const InputEmployee = () => {
   const test = async () => {
     try {
       const response = await fetch(
-        "https://empdb-rs8r-app-api.onrender.com/test"
+        `${URL}/test`
       );
       const data = await response.text();
       alert(data);
