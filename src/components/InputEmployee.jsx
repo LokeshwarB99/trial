@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { URL } from "../App";
 
 const InputEmployee = () => {
   // const [description, setDescription] = useState("");
@@ -16,7 +17,7 @@ const InputEmployee = () => {
     try {
       window.location = "/";
       const body = { emp_id, name, dob, address, salary };
-      const response = await fetch("http://localhost:5000/employees", {
+      const response = await fetch(`${URL}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

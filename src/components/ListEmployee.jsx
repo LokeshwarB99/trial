@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import EditEmployee from './EditEmployee'
+import { URL } from "../App";
+
 const ListEmployee = () => {
   const [EmployeeDetails, setEmployeeDetails] = useState([]);
 
   //Delete Employee funtion
   const deleteEmployee = async (id) => {
     try {
-      const deleteEmployee = await fetch(`http://localhost:5000/employees/${id}`, {
+      const deleteEmployee = await fetch(`${URL}/${id}`, {
         method: "DELETE",
       });
       setEmployeeDetails(EmployeeDetails.filter((employee) => employee.serial_id !== id));
@@ -19,7 +21,7 @@ const ListEmployee = () => {
   // Display existing EmployeeDetails
   const getEmployeeDetails = async () => {
     try {
-      const response = await fetch("http://localhost:5000/employees");
+      const response = await fetch(`${URL}`);
       const jsonData = await response.json();
       setEmployeeDetails(jsonData);
     } catch (error) {

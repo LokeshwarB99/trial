@@ -1,38 +1,35 @@
 import React, { useState } from "react";
-
+import { URL } from "../App";
 const EditEmployee = ({ employee }) => {
-  const [description,setDescription] = useState(employee.name)
+  const [description, setDescription] = useState(employee.name);
   const [emp_id, setemp_id] = useState(employee.emp_id);
   const [name, setname] = useState(employee.name);
   const [dob, setdob] = useState(employee.dob);
   const [address, setaddress] = useState(employee.address);
   const [salary, setsalary] = useState(employee.salary);
-  
+
   function setDetails(emp_id, name, dob, address, salary) {
-    setemp_id(emp_id)
-    setaddress(address)
-    setname(name)
-    setdob(dob)
-    setsalary(salary)
-    setDescription(name)
+    setemp_id(emp_id);
+    setaddress(address);
+    setname(name);
+    setdob(dob);
+    setsalary(salary);
+    setDescription(name);
   }
-  
+
   // Update values
 
   const updateDescription = async (e) => {
     e.preventDefault();
     try {
       const body = { emp_id, name, dob, address, salary };
-      const response = await fetch(
-        `http://localhost:5000/employees/${employee.serial_id}`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(body),
-        }
-      );
+      const response = await fetch(`${URL}/${employee.serial_id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
+      });
 
       window.location = "/";
     } catch (error) {
