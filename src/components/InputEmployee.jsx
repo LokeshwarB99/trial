@@ -82,8 +82,10 @@ const InputEmployee = () => {
           placeholder="salary"
         />
         <button className="btn btn-success mx-2">Add</button>
-        <button onClick={test} className="mt-2 btn btn-success mx-2">Test</button>
       </form>
+      <button onClick={test} className="mt-2 btn btn-danger mx-2">
+        Test
+      </button>
     </>
   );
 };
