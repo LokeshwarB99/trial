@@ -23,7 +23,7 @@ const EditEmployee = ({ employee }) => {
     e.preventDefault();
     try {
       const body = { emp_id, name, dob, address, salary };
-      const response = await fetch(`${URL}/${employee.serial_id}`, {
+      const response = await fetch(`${URL}${employee.serial_id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

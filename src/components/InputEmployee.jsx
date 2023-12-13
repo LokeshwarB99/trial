@@ -13,10 +13,10 @@ const InputEmployee = () => {
   const test = async () => {
     try {
       const response = await fetch(
-        `${URL}/test`
+        `${URL}test`
       );
       console.log(URL)
-      console.log(`${URL}/test`);
+      console.log(`${URL}test`);
 
       const data = await response.text();
       alert(data);

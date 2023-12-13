@@ -8,7 +8,7 @@ const ListEmployee = () => {
   //Delete Employee funtion
   const deleteEmployee = async (id) => {
     try {
-      const deleteEmployee = await fetch(`${URL}/${id}`, {
+      const deleteEmployee = await fetch(`${URL}${id}`, {
         method: "DELETE",
       });
       setEmployeeDetails(EmployeeDetails.filter((employee) => employee.serial_id !== id));
