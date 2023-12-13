@@ -8,11 +8,10 @@ const ListEmployee = () => {
   //Delete Employee funtion
   const deleteEmployee = async (id) => {
     try {
-      const deleteEmployee = await fetch(`${URL}${id}`, {
+      const deleteEmployee = await fetch(`${URL}employees/${id}`, {
         method: "DELETE",
       });
       setEmployeeDetails(EmployeeDetails.filter((employee) => employee.serial_id !== id));
-      window.location = "/";
     } catch (error) {
       console.error(error.message);
     }
@@ -21,7 +20,7 @@ const ListEmployee = () => {
   // Display existing EmployeeDetails
   const getEmployeeDetails = async () => {
     try {
-      const response = await fetch(`${URL}`);
+      const response = await fetch(`${URL}employees`);
       const jsonData = await response.json();
       setEmployeeDetails(jsonData);
     } catch (error) {

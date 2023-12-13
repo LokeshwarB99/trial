@@ -4,7 +4,7 @@ import { URL } from "../App";
 const InputEmployee = () => {
   // const [description, setDescription] = useState("");
 
-  const [emp_id, setEmp_id] = useState("")
+  const [emp_id, setEmp_id] = useState("");
   const [name, setname] = useState("");
   const [dob, setdob] = useState("");
   const [address, setaddress] = useState("");
@@ -12,10 +12,8 @@ const InputEmployee = () => {
 
   const test = async () => {
     try {
-      const response = await fetch(
-        `${URL}test`
-      );
-      console.log(URL)
+      const response = await fetch(`${URL}test`);
+      console.log(URL);
       console.log(`${URL}test`);
 
       const data = await response.text();
@@ -26,19 +24,15 @@ const InputEmployee = () => {
   };
 
   const onSubmitForm = async (e) => {
-    
     e.preventDefault();
     try {
-      window.location = "/";
       const body = { emp_id, name, dob, address, salary };
-      const response = await fetch(`${URL}`, {
+      const response = await fetch(`${URL}employees`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: {"Content-Type": "application/json"},
         body: JSON.stringify(body),
       });
-      
+      window.location = "/";
     } catch (error) {
       console.error(error.message);
     }
